@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+
+  mysqldb:
+    container_name: mysqldb
+    image: mysql
+    ports:
+      - '3308:3306'
+    environment:   
+      MYSQL_ROOT_PASSWORD: ba4569852
+      MYSQL_DATABASE: mysqldb
+    networks:
+      - python-network
+
+  python3:
+    container_name: python3
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb
+    networks:
+      - python-network
+    volumes: 
+      - .:/usr/src/ProjectVol
+
+networks:
+  python-network:
+    driver: bridge
