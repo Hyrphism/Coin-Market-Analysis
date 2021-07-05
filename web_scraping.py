@@ -19,11 +19,14 @@ class WebScraping:
     Format date 
     '''
 
-    date = datetime.strptime(date, r'%b %d, %Y')
-    date = datetime.strftime(r'%d-%m-%Y')
-    return date
+    try:
+      date = datetime.strptime(date, r'%b %d, %Y')
+      date = datetime.strftime(r'%d-%m-%Y')
+      return date
+    except:
+      return date
 
-  def scarping(self):
+  def scarping(self) -> None:
     '''
     Getting and storing data of cryptocurrencies from website
     '''
@@ -47,4 +50,3 @@ class WebScraping:
       table.create_table()
       table.insert(data_list)
       table.close_db()
-      
