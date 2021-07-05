@@ -15,7 +15,7 @@ class MysqlDB:
             host="localhost",
             database="mysqldb",
             user="root",
-            password="ba4569852",
+            password="password",
             port=3308
       )
 
