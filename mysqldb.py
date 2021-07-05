@@ -38,7 +38,7 @@ class MysqlDB:
     '''
 
     try:
-      self.cursor.executemany(f"DROP TABLE IF EXISTS {self.coin_name}")
+      self.cursor.execute(f"DROP TABLE IF EXISTS {self.coin_name}")
 
       self.cursor.execute(f'''CREATE TABLE {self.coin_name} (
             name VARCHAR(255),
@@ -56,14 +56,14 @@ class MysqlDB:
     except Exception as e:
       print(e)
 
-  def insert(self, data: list) -> None:
+  def insert(self, *data: list) -> None:
     '''
     Insert data to table.
     '''
 
     try:
-      self.cursor.execute(f'''INSERT INTO {self.coin_name} (name, symbol, date, open, high, low, close, volume)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)'''
+      self.cursor.executemany(f'''INSERT INTO {self.coin_name} (name, symbol, date, open, high, low, close, volume)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)''', data
       )
 
       self.mydb.commit()
