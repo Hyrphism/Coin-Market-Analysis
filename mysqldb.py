@@ -77,5 +77,4 @@ class MysqlDB:
     '''
     Update new data to table.
     '''
-    
     pass
