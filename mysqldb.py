@@ -56,7 +56,7 @@ class MysqlDB:
     except Exception as e:
       print(e)
 
-  def insert(self, *data: list) -> None:
+  def insert(self, data: list) -> None:
     '''
     Insert data to table.
     '''
