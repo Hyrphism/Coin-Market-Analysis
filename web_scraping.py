@@ -33,7 +33,7 @@ class WebScraping:
 
       symbol = soup.find('h1').text.split()[2][1:-1]
       tbody = soup.find('tbody').find_all('tr')
-      
+
       data_list = []
       for data in tbody:
         row = [coin, symbol] + [coin_data.text for idx, coin_data in enumerate(data) if idx != 5]
@@ -47,3 +47,4 @@ class WebScraping:
       table.create_table()
       table.insert(data_list)
       table.close_db()
+      
