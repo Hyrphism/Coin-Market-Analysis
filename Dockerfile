@@ -1,6 +1,7 @@
 FROM       python:3.8-slim-buster
 
-WORKDIR    /home/hyphersism/Project
+RUN        mkdir /Project
+WORKDIR    /Project
 
 # Install dependencies:
 COPY       requirements.txt ./
