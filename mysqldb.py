@@ -15,7 +15,7 @@ class MysqlDB:
             host="localhost",
             database="mysqldb",
             user="root",
-            password="password",
+            password="ba4569852",
             port=3308
       )
 
@@ -24,13 +24,6 @@ class MysqlDB:
     except Exception as e:
       print(e)
 
-  def close_db(self) -> None:
-    '''
-    Close database.
-    '''
-
-    self.mydb.close()
-
   def create_table(self) -> None:
     '''
     Create new table by coin's name.
@@ -38,17 +31,19 @@ class MysqlDB:
     '''
 
     try:
+      self.connect_db()
+
       self.cursor.execute(f"DROP TABLE IF EXISTS {self.coin_name}")
 
       self.cursor.execute(f'''CREATE TABLE {self.coin_name} (
             name VARCHAR(255),
             symbol VARCHAR(255),
             date DATE,
-            open FLOAT,
-            high FLOAT,
-            low FLOAT,
-            close FLOAT,
-            volume FLOAT)'''
+            open VARCHAR(255),
+            high VARCHAR(255),
+            low VARCHAR(255),
+            close VARCHAR(255),
+            volume VARCHAR(255))'''
       )
 
       print(f'Create Table {self.coin_name} Successfully')
@@ -62,6 +57,8 @@ class MysqlDB:
     '''
 
     try:
+      self.connect_db()
+      
       self.cursor.executemany(f'''INSERT INTO {self.coin_name} (name, symbol, date, open, high, low, close, volume)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)''', data
       )
