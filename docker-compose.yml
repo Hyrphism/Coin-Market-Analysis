@@ -23,7 +23,7 @@ services:
     networks:
       - python-network
     volumes: 
-      - .:/usr/src/ProjectVol
+      - .:/usr/src/
 
 networks:
   python-network:
