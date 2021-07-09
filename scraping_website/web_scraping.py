@@ -1,6 +1,6 @@
 from datetime import datetime
 from bs4 import BeautifulSoup
-from navigate_website import NavigateWebsite
+from scraping_website import NavigateWebsite
 from mysqldb import MysqlDB
 
 class WebScraping:
