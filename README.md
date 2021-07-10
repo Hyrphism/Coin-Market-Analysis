@@ -1,5 +1,7 @@
 # Coin-Market-Analysis
 
+Scraping historical data of cryptocurrencies from website then store to the MySQL database, analyze and predict the next 30 days.
+
 ## Set up driver for selenium
 1.  Check you have installed latest version of chrome brwoser -> `chromium-browser -version`
 
@@ -16,3 +18,10 @@
 7.  Now, you would need to run something like `sudo chmod a+x chromedriver` to mark it executable.
 
 8.  Finally you can execute the code.
+
+## Start analyze 
+1.  Run docker-compose.yml to install all packages and create a new database -> `docker-compose up` 
+
+2.  Run main.py to get data from website and store to the database.
+
+3.  Run jupyter notebook to analyze and predict price of cryptocurrencies. 
