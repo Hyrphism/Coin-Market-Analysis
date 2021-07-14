@@ -1,7 +1,6 @@
 FROM       python:3.8-slim-buster
 
-RUN        mkdir /Project
-WORKDIR    /Project
+WORKDIR    /code
 
 # Install dependencies:
 COPY       requirements.txt ./

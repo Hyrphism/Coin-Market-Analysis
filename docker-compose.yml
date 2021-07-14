@@ -12,6 +12,8 @@ services:
       MYSQL_DATABASE: mysqldb
     networks:
       - python-network
+    volumes: 
+      - "db-volume:/var/lib/mysql"
 
   python3:
     container_name: python3
@@ -24,6 +26,9 @@ services:
       - python-network
     volumes: 
       - .:/usr/src/
+
+volumes:
+  db-volume:
 
 networks:
   python-network:
