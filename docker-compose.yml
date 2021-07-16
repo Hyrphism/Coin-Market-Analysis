@@ -15,17 +15,19 @@ services:
     volumes: 
       - "db-volume:/var/lib/mysql"
 
-  python3:
+  webscraping:
     container_name: web-scraping
+    ports: 
+      - "5678:5678"
     build:
-      context: .
+      context: web-scraping
       dockerfile: Dockerfile
     depends_on:
       - mysqldb
     networks:
       - python-network
     volumes: 
-      - .:/usr/src/
+      - ".:/usr/src/"
 
 volumes:
   db-volume:
